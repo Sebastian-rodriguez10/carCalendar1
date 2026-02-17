@@ -41,24 +41,37 @@ public class Evento {
 
 
     public void setDescripcion(String descripcion) {
+        if (descripcion == "") {
+            System.out.println("La descripcion es obligatoria");
+        }
         this.descripcion = descripcion;
     }
     public void setFin(LocalDateTime fin) {
-        if (fin == LocalDateTime.now()) {
-            System.out.println("danabanna");
-        }else{
-            System.out.println("no dana banana noooo");
+        if (fin == null) {
+            System.out.println("No puede ser un valor nulo");
+        }
+        if (inicio != null && fin.isBefore(inicio)) {
+            System.out.println("La fecha final no puede ser antes de la fecha inicial");
         }
         this.fin = fin;
 
     }
     public void setId(int id) {
+        if (id <= 0) {
+            System.out.println("el id debe ser mayor a 0");
+        }
         this.id = id;
     }
     public void setInicio(LocalDateTime inicio) {
+        if (inicio == null) {
+            System.out.println("debe poner fecha de inicio");
+        }
         this.inicio = inicio;
     }
     public void setNombre(String nombre) {
+        if (nombre == "") {
+            System.out.println("El nombre es obligatorio");
+        }
         this.nombre = nombre;
     }
 }
